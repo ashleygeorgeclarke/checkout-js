@@ -3,6 +3,7 @@ import React from "react";
 import { IconClose } from "../ui/icon";
 
 import { MultiShippingTableData, MultiShippingTableItemWithType } from "./MultishippingV2Type";
+import { TranslatedString } from '@bigcommerce/checkout/locale';
 
 export const getItemContent = (lineItem: MultiShippingTableItemWithType) => {
     return <span>
@@ -22,7 +23,7 @@ interface AllocatedItemsListProps {
 const AllocatedItemsList = ({ assignedItems, onUnassignItem }: AllocatedItemsListProps) => {
     return (
         <div className="allocated-line-items">
-            <h3>{assignedItems.shippableItemsCount > 1 ? `${assignedItems.shippableItemsCount} items` : `${assignedItems.shippableItemsCount} item`} allocated</h3>
+            <h3><TranslatedString data={{ count: assignedItems.shippableItemsCount }} id="shipping.multishipping_item_allocated_message" /></h3>
             <ul className="allocated-line-items-list">
                 {assignedItems.lineItems.map(item => (
                     <li key={item.id}>
