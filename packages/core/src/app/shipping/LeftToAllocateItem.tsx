@@ -1,8 +1,10 @@
 import React, { FunctionComponent } from "react";
 
 import { FormField, TextInput } from "../ui/form";
+import { isMobileView } from "../ui/responsive";
 
 import { MultiShippingTableItemWithType } from "./MultishippingV2Type";
+import { TranslatedString } from "@bigcommerce/checkout/locale";
 
 interface LeftToAllocateItemProps {
     item: MultiShippingTableItemWithType;
@@ -10,6 +12,8 @@ interface LeftToAllocateItemProps {
 }
 
 const LeftToAllocateItem: FunctionComponent<LeftToAllocateItemProps> = ({ item, error }: LeftToAllocateItemProps) => {
+    const isMobileViewUI = isMobileView();
+
     return (
         <tr>
             <td className="left-to-allocate-item-name-container">
@@ -23,8 +27,9 @@ const LeftToAllocateItem: FunctionComponent<LeftToAllocateItemProps> = ({ item, 
                     ))}
                 </div>
             </td>
-            <td>{item.quantity}</td>
+            {!isMobileViewUI && <td>{item.quantity}</td>}
             <td>
+                {isMobileViewUI && <TranslatedString data={{ count: item.quantity }} id="shipping.multishipping_left_to_allocate_message" />}
                 <FormField
                     additionalClassName={error ? "form-field--error" : ""}
                     input={({ field }) => <TextInput

@@ -5,6 +5,7 @@ import { preventDefault } from "@bigcommerce/checkout/dom-utils";
 import { useCheckout } from "@bigcommerce/checkout/payment-integration-api";
 
 import { IconChevronDown, IconChevronUp } from "../ui/icon";
+import { isMobileView } from "../ui/responsive";
 
 import AllocateItemsModal from "./AllocateItemsModal";
 import ConsignmentLineItemDetail from "./ConsignmentLineItemDetail";
@@ -72,6 +73,8 @@ const ConsignmentLineItem: FunctionComponent<ConsignmentLineItemProps> = ({ cons
         setShowItems(!showItems);
     }
 
+    const isMobileViewUI = isMobileView();
+
     const itemsCount = consignment.shippableItemsCount;
 
     return (
@@ -97,12 +100,12 @@ const ConsignmentLineItem: FunctionComponent<ConsignmentLineItemProps> = ({ cons
                     >
                         {showItems ? (
                             <>
-                                Hide items
+                                {!isMobileViewUI && 'Hide items'}
                                 <IconChevronUp />
                             </>
                         ) : (
                             <>
-                                Show items
+                                    {!isMobileViewUI && 'Show items'}
                                 <IconChevronDown />
                             </>
                         )}

@@ -105,7 +105,7 @@ const NewConsignment = ({
                     unassignedItems={unassignedItems}
                 />
                 <div className="new-consignment-line-item-header">
-                    <p>No items allocated</p>
+                    <h3>No item allocated</h3>
                     <a
                         data-test="allocate-items-button"
                         href="#"

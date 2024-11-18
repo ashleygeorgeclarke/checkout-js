@@ -157,7 +157,7 @@ describe('MultiShippingFormV2 Component', () => {
         expect(screen.getByText('Destination #2')).toBeInTheDocument();
 
         await waitFor(() => {
-            expect(screen.queryByText('No items allocated')).not.toBeInTheDocument();
+            expect(screen.queryByText('No item allocated')).not.toBeInTheDocument();
         });
 
         // eslint-disable-next-line testing-library/no-node-access
@@ -175,7 +175,7 @@ describe('MultiShippingFormV2 Component', () => {
             await userEvent.click(addressOption);
         }
 
-        expect(screen.getByText('No items allocated')).toBeInTheDocument();
+        expect(screen.getByText('No item allocated')).toBeInTheDocument();
 
         const allocateItemsButton = screen.getByTestId('allocate-items-button');
 
@@ -261,7 +261,7 @@ describe('MultiShippingFormV2 Component', () => {
         expect(screen.getByText('Destination #2')).toBeInTheDocument();
 
         await waitFor(() => {
-            expect(screen.queryByText('No items allocated')).not.toBeInTheDocument();
+            expect(screen.queryByText('No item allocated')).not.toBeInTheDocument();
         });
 
         // eslint-disable-next-line testing-library/no-node-access
@@ -279,7 +279,7 @@ describe('MultiShippingFormV2 Component', () => {
             await userEvent.click(addressOption);
         }
 
-        expect(screen.getByText('No items allocated')).toBeInTheDocument();
+        expect(screen.getByText('No item allocated')).toBeInTheDocument();
 
         const allocateItemsButton = screen.getByTestId('allocate-items-button');
 
